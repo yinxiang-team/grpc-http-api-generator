@@ -1,4 +1,4 @@
-package com.yinxiang.utils.doc;
+package com.yinxiang.utils.api.doc;
 
 import com.yinxiang.utils.api.generator.BaseContentBuilder;
 import com.yinxiang.utils.api.generator.infos.MethodInfo;

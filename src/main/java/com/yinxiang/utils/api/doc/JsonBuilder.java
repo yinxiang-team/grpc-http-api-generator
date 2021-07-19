@@ -1,4 +1,4 @@
-package com.yinxiang.utils.doc;
+package com.yinxiang.utils.api.doc;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

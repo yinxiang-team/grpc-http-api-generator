@@ -2,7 +2,7 @@ package com.yinxiang.utils.api.generator.processors;
 
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.RootDoc;
-import com.yinxiang.utils.doc.RestApiJsonGenerator;
+import com.yinxiang.utils.api.doc.RestApiJsonGenerator;
 
 import java.util.Optional;
 import java.util.function.BiFunction;

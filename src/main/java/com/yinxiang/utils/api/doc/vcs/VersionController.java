@@ -1,4 +1,4 @@
-package com.yinxiang.utils.doc.vcs;
+package com.yinxiang.utils.api.doc.vcs;
 
 import java.io.File;
 

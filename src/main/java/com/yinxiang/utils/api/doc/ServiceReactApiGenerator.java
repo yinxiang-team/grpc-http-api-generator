@@ -1,11 +1,11 @@
-package com.yinxiang.utils.doc;
+package com.yinxiang.utils.api.doc;
 
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yinxiang.utils.api.generator.GrpcInfoGenerator;
-import com.yinxiang.utils.doc.vcs.GitController;
-import com.yinxiang.utils.doc.vcs.VersionController;
+import com.yinxiang.utils.api.doc.vcs.GitController;
+import com.yinxiang.utils.api.doc.vcs.VersionController;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.*;

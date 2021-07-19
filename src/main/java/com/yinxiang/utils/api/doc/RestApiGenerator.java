@@ -1,11 +1,10 @@
-package com.yinxiang.utils.doc;
+package com.yinxiang.utils.api.doc;
 
-import com.sun.javadoc.RootDoc;
 import com.yinxiang.utils.api.generator.AbstractGrpcGenerator;
-import com.yinxiang.utils.api.generator.processors.*;
+import com.yinxiang.utils.api.generator.processors.ServiceProcessor;
 
 /**
- * The REST API html file generator by gRPC protobuf classes.
+ * The REST API text file generator by gRPC protobuf classes.
  *
  * Can use in maven build plugin like this:
  *
@@ -15,7 +14,7 @@ import com.yinxiang.utils.api.generator.processors.*;
  *   <li>version: 3.0.0</li>
  *   <li>executions.execution.phase: compile</li>
  *   <li>executions.execution.goals.goal: java</li>
- *   <li>executions.execution.configuration.mainClass: com.yinxiang.utils.api.doc.RestApiJsonGenerator</li>
+ *   <li>executions.execution.configuration.mainClass: com.yinxiang.utils.api.doc.RestApiGenerator</li>
  *   <li>executions.execution.configuration.arguments.argument: ${basedir}/../test-stub/target/generated-sources/protobuf/</li>
  *   <li>executions.execution.configuration.arguments.argument: ${basedir}/../test-stub/target/classes</li>
  *   <li>executions.execution.configuration.arguments.argument: ${basedir}</li>
@@ -27,27 +26,17 @@ import com.yinxiang.utils.api.generator.processors.*;
  * The third argument unused.
  * @author Huiyuan Fu
  */
-public class RestApiJsonGenerator extends AbstractGrpcGenerator {
-  protected RestApiJsonGenerator(String sourcePath) {
-    super(ServiceProcessor.createFullServiceProcessor(sourcePath), new JsonBuilder());
+public class RestApiGenerator extends AbstractGrpcGenerator {
+  private RestApiGenerator(String sourcePath) {
+    super(ServiceProcessor.createFullServiceProcessor(sourcePath), new TextBuilder());
   }
 
-  /**
-   * javadoc调用入口
-   *
-   * @param root
-   * @return
-   */
-  public static boolean start(RootDoc root) {
-    return JavaDocCollector.start(root);
+  public static void main(String[] args) throws Exception {
+    new RestApiGenerator(args[0]).generator(args[1], args[2], args[3]);
   }
 
   @Override
   protected String getFileFormat() {
-    return ".json";
-  }
-
-  public static void main(String[] args) throws Exception {
-    new RestApiJsonGenerator(args[0]).generator(args[1], args[2], args[3]);
+    return ".txt";
   }
 }
